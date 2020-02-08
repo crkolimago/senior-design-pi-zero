@@ -1,1 +1,3 @@
-obexftp -b A4:83:E7:A6:7D:0B -v -p test2.txt
+echo "$1"
+echo "$2"
+obexftp -b "$1" -v -p "$2"
