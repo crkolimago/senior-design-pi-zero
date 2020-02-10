@@ -12,8 +12,8 @@ def main():
 
     print("found " + str(len(nearby_devices)) + " devices")
 
-    my_name='A4:83:E7:A6:7D:0B'
-
+    my_name='B0:19:C6:64:EC:91' # matts iphone
+    my_name='A4:83:E7:A6:7D:0B' # 3MC02ZC4RULVDR
 
     for name, addr in nearby_devices:
         print(addr + ", " + name) 
