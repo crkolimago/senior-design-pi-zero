@@ -7,7 +7,7 @@ sensor = adafruit_lsm9ds1.LSM9DS1_I2C(i2c)
 
 while True:
     # Read acceleration, magnetometer, gyroscope, temperature.
-    f = open("results.txt", "w")
+    f = open("results.txt", "a")
     accel_x, accel_y, accel_z = sensor.acceleration
     #mag_x, mag_y, mag_z = sensor.magnetic
     #gyro_x, gyro_y, gyro_z = sensor.gyro
