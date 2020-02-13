@@ -9,6 +9,10 @@ while True:
     # Read acceleration, magnetometer, gyroscope, temperature.
     f = open("results.txt", "a")
     accel_x, accel_y, accel_z = sensor.acceleration
+    accel_x =  0.10197162129779 * accel_x
+    accel_y =  0.10197162129779 * accel_y
+    accel_z =  0.10197162129779 * (accel_z -9.8)
+    
     #mag_x, mag_y, mag_z = sensor.magnetic
     #gyro_x, gyro_y, gyro_z = sensor.gyro
    #temp = sensor.temperature
