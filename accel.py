@@ -11,7 +11,7 @@ while True:
     accel_x, accel_y, accel_z = sensor.acceleration
     accel_x =  0.10197162129779 * accel_x
     accel_y =  0.10197162129779 * accel_y
-    accel_z =  0.10197162129779 * (accel_z -9.8)
+    accel_z =  0.10197162129779 * (accel_z)
     
     #mag_x, mag_y, mag_z = sensor.magnetic
     #gyro_x, gyro_y, gyro_z = sensor.gyro
@@ -22,4 +22,4 @@ while True:
     #print('Gyroscope (degrees/sec): ({0:0.3f},{1:0.3f},{2:0.3f})'.format(gyro_x, gyro_y, gyro_z))
     #print('Temperature: {0:0.3f}C'.format(temp))
     # Delay for a second.
-    time.sleep(1.0)
+    time.sleep(.2)
