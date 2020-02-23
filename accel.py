@@ -3,13 +3,14 @@ import time
 import busio
 import adafruit_lsm9ds1
 import matplotlib.pyplot as plt 
+import pandas as pd
 i2c = busio.I2C(board.SCL, board.SDA)
 sensor = adafruit_lsm9ds1.LSM9DS1_I2C(i2c)
 
 try:
-    data_x = []
-    data_y = []
-    data_z = []
+    data_x = {}
+    data_y = {}
+    data_z = {}
 
 
     start_time = time.time()
@@ -21,9 +22,10 @@ try:
         accel_y =  0.10197162129779 * accel_y
         accel_z =  0.10197162129779 * accel_z
 
-        data_x[time.time()-start_time] = accel_x
-        data_y[time.time()-start_time] = accel_y
-        data_z[time.time()-start_time] = accel_z
+        curr_time = time.time()-start_time
+        data_x[curr_time] = accel_x
+        data_y[curr_time] = accel_y
+        data_z[curr_time] = accel_z
         
         #mag_x, mag_y, mag_z = sensor.magnetic
         #gyro_x, gyro_y, gyro_z = sensor.gyro
@@ -36,10 +38,14 @@ try:
         # Delay for a second.
         time.sleep(.1)
 except:
-    plt.plot("time","accel(g's)",data = data_x)
+    dfx = pd.DataFrame(data = data_x, columns=["Time","accel_x"])
+    dfy = pd.DataFrame(data = data_y, columns=["Time","accel_y"])
+    dfz = pd.DataFrame(data = data_z, columns=["Time","accel_z"])
+    
+    plt.plot("time","accel(g's)",data = dfx)
     plt.show()
-    plt.plot("time","accel(g's)",data = data_y)
+    plt.plot("time","accel(g's)",data = dfy)
     plt.show()
-    plt.plot("time","accel(g's)",data = data_z)
+    plt.plot("time","accel(g's)",data = dfz)
     plt.show()
     #f.close()
