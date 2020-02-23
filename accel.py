@@ -15,7 +15,7 @@ try:
     start_time = time.time()
     while True:
         # Read acceleration, magnetometer, gyroscope, temperature.
-        f = open("results.txt", "a")
+        #f = open("results.txt", "a")
         accel_x, accel_y, accel_z = sensor.acceleration
         accel_x =  0.10197162129779 * accel_x
         accel_y =  0.10197162129779 * accel_y
@@ -29,17 +29,17 @@ try:
         #gyro_x, gyro_y, gyro_z = sensor.gyro
     #temp = sensor.temperature
         # Print values.
-        print('Acceleration (m/s^2): ({0:0.3f},{1:0.3f},{2:0.3f})'.format(accel_x, accel_y, accel_z))
+       # print('Acceleration (m/s^2): ({0:0.3f},{1:0.3f},{2:0.3f})'.format(accel_x, accel_y, accel_z))
         #print('Magnetometer (gauss): ({0:0.3f},{1:0.3f},{2:0.3f})'.format(mag_x, mag_y, mag_z))
         #print('Gyroscope (degrees/sec): ({0:0.3f},{1:0.3f},{2:0.3f})'.format(gyro_x, gyro_y, gyro_z))
         #print('Temperature: {0:0.3f}C'.format(temp))
         # Delay for a second.
         time.sleep(.1)
 except:
-    plt.plot("time","accel(g's)",data_x)
+    plt.plot("time","accel(g's)",data = data_x)
     plt.show()
-    plt.plot("time","accel(g's)",data_y)
+    plt.plot("time","accel(g's)",data = data_y)
     plt.show()
-    plt.plot("time","accel(g's)",data_z)
+    plt.plot("time","accel(g's)",data = data_z)
     plt.show()
-    f.close()
+    #f.close()
