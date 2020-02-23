@@ -1,0 +1,6 @@
+pkg-config
+libboost-thread-dev
+libbluetooth-dev >= 4.101
+libglib2.0-dev
+python-dev
+libboost-python-dev
