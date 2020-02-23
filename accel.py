@@ -35,7 +35,7 @@ try:
         #print('Temperature: {0:0.3f}C'.format(temp))
         # Delay for a second.
         time.sleep(.1)
-except:
+finally:
     plt.plot("time","accel(g's)",data_x)
     plt.show()
     plt.plot("time","accel(g's)",data_y)
