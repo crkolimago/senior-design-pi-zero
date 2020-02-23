@@ -7,9 +7,9 @@ i2c = busio.I2C(board.SCL, board.SDA)
 sensor = adafruit_lsm9ds1.LSM9DS1_I2C(i2c)
 
 try:
-    data_x = {}
-    data_y = {}
-    data_z = {}
+    data_x = []
+    data_y = []
+    data_z = []
 
 
     start_time = time.time()
