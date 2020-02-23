@@ -31,6 +31,7 @@ try:
         #gyro_x, gyro_y, gyro_z = sensor.gyro
     #temp = sensor.temperature
         # Print values.
+        print("acquiring data")
        # print('Acceleration (m/s^2): ({0:0.3f},{1:0.3f},{2:0.3f})'.format(accel_x, accel_y, accel_z))
         #print('Magnetometer (gauss): ({0:0.3f},{1:0.3f},{2:0.3f})'.format(mag_x, mag_y, mag_z))
         #print('Gyroscope (degrees/sec): ({0:0.3f},{1:0.3f},{2:0.3f})'.format(gyro_x, gyro_y, gyro_z))
@@ -43,9 +44,10 @@ except:
     dfz = pd.DataFrame(data = data_z, columns=["Time","accel_z"])
     
     plt.plot(data = dfx)
-    plt.show()
     plt.plot(data = dfy)
-    plt.show()
     plt.plot(data = dfz)
+    print("here")
     plt.show()
+    print("finished")
+
     #f.close()
