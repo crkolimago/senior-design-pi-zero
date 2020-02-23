@@ -42,10 +42,10 @@ except:
     dfy = pd.DataFrame(data = data_y, columns=["Time","accel_y"])
     dfz = pd.DataFrame(data = data_z, columns=["Time","accel_z"])
     
-    plt.plot("time","accel(g's)",data = dfx)
+    plt.plot(data = dfx)
     plt.show()
-    plt.plot("time","accel(g's)",data = dfy)
+    plt.plot(data = dfy)
     plt.show()
-    plt.plot("time","accel(g's)",data = dfz)
+    plt.plot(data = dfz)
     plt.show()
     #f.close()
