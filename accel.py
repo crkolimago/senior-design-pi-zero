@@ -47,7 +47,7 @@ except:
     plt.plot(data = dfy)
     plt.plot(data = dfz)
     print("here")
-    plt.show()
+    plt.show(block = True)
     print("finished")
 
     #f.close()
