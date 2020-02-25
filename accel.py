@@ -21,14 +21,10 @@ try:
         accel_z =  0.10197162129779 * accel_z
 
         curr_time = time.time()-start_time
-        """data_x[curr_time] = accel_x
-        data_y[curr_time] = accel_y
-        data_z[curr_time] = accel_z"""
         
         #mag_x, mag_y, mag_z = sensor.magnetic
         #gyro_x, gyro_y, gyro_z = sensor.gyro
-    #temp = sensor.temperature
-        # Print values.
+        #temp = sensor.temperature
         
         print('{0:0.3f},{1:0.3f},{2:0.3f},{3:0.3f}'.format(curr_time,accel_x, accel_y, accel_z),file = f)
         #print('Magnetometer (gauss): ({0:0.3f},{1:0.3f},{2:0.3f})'.format(mag_x, mag_y, mag_z))
@@ -37,13 +33,5 @@ try:
         # Delay for a second.
         time.sleep(.1)
 except:
-    """dfx = pd.DataFrame(data = data_x, columns=["Time","accel_x"])
-    dfy = pd.DataFrame(data = data_y, columns=["Time","accel_y"])
-    dfz = pd.DataFrame(data = data_z, columns=["Time","accel_z"])
-    
-    plt.plot(data = dfx)
-    plt.show(block = True)"""
-    #plt.plot(data = dfy)
-    #plt.plot(data = dfz)
-    print("cleaning up")
+    print("\nCleaning up")
     f.close()
