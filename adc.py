@@ -13,7 +13,7 @@ spi.open(0, 0)
 spi.max_speed_hz=1000000
 
 spi2 = spidev.SpiDev()
-spi2.open(1, 0)
+spi2.open(0, 1)
 spi2.max_speed_hz=1000000
 
 def readadc(adcnum):
