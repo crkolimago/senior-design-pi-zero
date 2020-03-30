@@ -44,6 +44,9 @@ try:
         if pad_value2 > 700: """
         print("---------------------------------------")
         print("Pressure Pad 2 Value: %d" % pad_value2)
+        print("Pressure Pad 1 Value: %d" % pad_value)
+
+
         time.sleep(delay)
 except KeyboardInterrupt:
     pass
