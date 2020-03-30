@@ -38,12 +38,12 @@ try:
 
 
 
-        if pad_value > 700: 
+        """if pad_value > 700: 
             print("---------------------------------------")
             print("Pressure Pad  1 Value: %d" % pad_value)
-        if pad_value2 > 700: 
-            print("---------------------------------------")
-            print("Pressure Pad 2 Value: %d" % pad_value2)
+        if pad_value2 > 700: """
+        print("---------------------------------------")
+        print("Pressure Pad 2 Value: %d" % pad_value2)
         time.sleep(delay)
 except KeyboardInterrupt:
     pass
