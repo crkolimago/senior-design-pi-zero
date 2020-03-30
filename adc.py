@@ -36,9 +36,9 @@ try:
         pad_value = readadc(pad_channel)
         pad_value2 = readadc2(pad_channel)
 
-        if int(pad_value) > 700: 
+        if pad_value > 700: 
             print("SPI 1 :"+ pad_value)
-        if int(pad_value2) > 700: 
+        if pad_value2 > 700: 
             print("SPI 2 " + pad_value2)
 
         time.sleep(delay)
