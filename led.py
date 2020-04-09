@@ -1,6 +1,6 @@
 import board
 import neopixel
-pixels = neopixel.NeoPixel(board.D18, 60)
+pixels = neopixel.NeoPixel(board.D17, 60)
 
 for i in range(len(pixels)):
     if i%2 == 0: 
