@@ -58,7 +58,7 @@ try:
         accel_y =  0.10197162129779 * accel_y
         accel_z =  0.10197162129779 * accel_z
         accel_vect = (accel_x**2 + accel_y**2+ accel_z**2)**.5
-        if accel_vect > .5: 
+        if accel_vect > 2 or pad_value > 800 or pad_value2 > 800: 
             print("_____________CRASH DETECTED_____________"+str(accel_vect))
             led_on()
 
