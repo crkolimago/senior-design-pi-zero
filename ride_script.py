@@ -45,7 +45,7 @@ def led_on():
     pixels.fill((255,0,0))
 
 def led_off():
-    pixels.fill((255,0,0))
+    pixels.fill((0,0,0))
 
 try:
     while True:
