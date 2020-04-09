@@ -5,7 +5,13 @@ import time
 import board
 import neopixel
 
-pixels = neopixel.NeoPixel(board.D18, 60)
+import busio
+import adafruit_lsm9ds1
+i2c = busio.I2C(board.SCL, board.SDA)
+sensor = adafruit_lsm9ds1.LSM9DS1_I2C(i2c)
+
+
+pixels = neopixel.NeoPixel(board.D12, 60)
 
 #Define Variables
 delay = 0.1
@@ -39,7 +45,7 @@ def led_on():
     pixels.fill((255,0,0))
 
 def led_off():
-    pixels.fill((255,0,0))
+    pixels.fill((0,0,0))
 
 try:
     while True:
@@ -47,8 +53,13 @@ try:
 
         pad_value2 = readadc2(pad_channel)
 
-        if pad_value2 > 700 or pad_value > 700: 
-            print("_____________CRASH DETECTED_____________")
+        accel_x, accel_y, accel_z = sensor.acceleration
+        accel_x =  0.10197162129779 * accel_x
+        accel_y =  0.10197162129779 * accel_y
+        accel_z =  0.10197162129779 * accel_z
+        accel_vect = (accel_x**2 + accel_y**2+ accel_z**2)**.5
+        if accel_vect > 2 or pad_value > 800 or pad_value2 > 800: 
+            print("_____________CRASH DETECTED_____________"+str(accel_vect))
             led_on()
 
         time.sleep(delay)
