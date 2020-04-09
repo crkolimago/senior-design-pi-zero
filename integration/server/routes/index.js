@@ -21,7 +21,7 @@ router.get('/start', (req, res, next) => {
   
 });
 
-router.get('/stop', (req, res, next) => {
+router.get('/end', (req, res, next) => {
   console.log('Stopping a Trip!');
   try {
     res.sendStatus(200);
