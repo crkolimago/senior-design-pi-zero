@@ -11,7 +11,7 @@ i2c = busio.I2C(board.SCL, board.SDA)
 sensor = adafruit_lsm9ds1.LSM9DS1_I2C(i2c)
 
 
-pixels = neopixel.NeoPixel(board.D18, 60)
+pixels = neopixel.NeoPixel(board.D12, 60)
 
 #Define Variables
 delay = 0.1
@@ -59,7 +59,7 @@ try:
         accel_z =  0.10197162129779 * accel_z
         accel_vect = (accel_x**2 + accel_y**2+ accel_z**2)**.5
         if accel_vect > .5: 
-            print("_____________CRASH DETECTED_____________"+accel_vect)
+            print("_____________CRASH DETECTED_____________"+str(accel_vect))
             led_on()
 
         time.sleep(delay)
