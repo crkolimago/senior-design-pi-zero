@@ -7,6 +7,8 @@ import io
 import picamera
 from subprocess import call
 
+import requests
+
 import busio
 import adafruit_lsm9ds1
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -57,6 +59,8 @@ def led_off():
     pixels.fill((0,0,0))
 
 def h264_to_mp4():
+    command = "rm crash.mp4"
+    call([command], shell=True)
     command = "MP4Box -add crash.h264 crash.mp4"
     call([command], shell=True)
 
@@ -76,6 +80,9 @@ def main():
             if accel_vect > 2 or pad_value > 800 or pad_value2 > 800:
                 print("_____________CRASH DETECTED_____________"+str(accel_vect))
                 led_on()
+
+                r = requests.get('http://13.59.245.151:3031/crashfrompi')
+                print(r.text)
 
                 # send signal to iphone here???
 
