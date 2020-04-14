@@ -3,8 +3,8 @@ import picamera
 
 # 30, 10, 40
 
-TOTAL_TIME = 30
-AFTER_EVENT = 10
+TOTAL_TIME = 10
+AFTER_EVENT = 5
 
 def main():
     """
@@ -23,13 +23,14 @@ def main():
     try:
         print('start')
         while True:
-            camera.wait_recording(1)
-            if seconds == 40:
+            camera.wait_recording(0.1)
+            print('%f' % seconds)
+            if int(seconds) == 20:
                 print('%d' % seconds)
                 camera.wait_recording(AFTER_EVENT)
                 stream.copy_to('motion.h264')
                 break
-            seconds+=1
+            seconds+=0.1
     finally:
         print('end')
         camera.stop_recording()

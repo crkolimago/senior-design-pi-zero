@@ -5,6 +5,7 @@ import neopixel
 
 import io
 import picamera
+from subprocess import call
 
 import busio
 import adafruit_lsm9ds1
@@ -62,7 +63,7 @@ def h264_to_mp4():
 def main():
     try:
         while True:
-            camera.wait_recording(1)
+            camera.wait_recording(0.1)
 
             pad_value = readadc(pad_channel)
             pad_value2 = readadc2(pad_channel)
@@ -80,8 +81,8 @@ def main():
 
                 false_alarm = False # signal from iphone, currently does nothing
                 save_video = True
-                for i in range(camera_delay): # continue recording for camera_delay seconds
-                    camera.wait_recording(1)
+                for i in range(camera_delay*10): # continue recording for camera_delay seconds
+                    camera.wait_recording(0.1)
                     # check for signal from iphone here???
                     if false_alarm:
                         save_video = False
@@ -92,8 +93,6 @@ def main():
                     stream.copy_to('crash.h264')
                     h264_to_mp4()
                     break # takes us to finally block
-
-            time.sleep(delay)
     finally:
         led_off()
         camera.stop_recording()
