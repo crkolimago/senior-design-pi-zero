@@ -8,6 +8,8 @@ import picamera
 from subprocess import call
 
 import requests
+import pysftp
+import sys
 
 import busio
 import adafruit_lsm9ds1
@@ -63,6 +65,12 @@ def h264_to_mp4():
     call([command], shell=True)
     command = "MP4Box -add crash.h264 crash.mp4"
     call([command], shell=True)
+    try:
+        srv = pysftp.Connection(host="3.15.207.49", username="ubuntu", private_key="./aws_mag.pem")
+        srv.put(f"./crash.mp4", f"/home/ubuntu/smart-helmet-integration/videoserver/files/crash.mp4")
+        srv.close()
+    except Exception as e:
+        print(e)
 
 def main():
     try:
@@ -84,13 +92,13 @@ def main():
                 r = requests.get('http://13.59.245.151:3031/crashfrompi')
                 print(r.text)
 
-                # send signal to iphone here???
+                # send signal to iphone here
 
                 false_alarm = False # signal from iphone, currently does nothing
                 save_video = True
                 for i in range(camera_delay*10): # continue recording for camera_delay seconds
                     camera.wait_recording(0.1)
-                    # check for signal from iphone here???
+                    # check for signal from iphone here
                     if false_alarm:
                         save_video = False
                         led_off()
