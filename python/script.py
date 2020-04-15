@@ -66,7 +66,7 @@ def h264_to_mp4():
     command = "MP4Box -add crash.h264 crash.mp4"
     call([command], shell=True)
     try:
-        srv = pysftp.Connection(host="3.15.207.49", username="ubuntu", private_key="./aws_mag.pem")
+        srv = pysftp.Connection(host="3.15.207.49", username="ubuntu", private_key="~/keys/aws_mag.pem")
         srv.put(f"./crash.mp4", f"/home/ubuntu/smart-helmet-integration/videoserver/files/crash.mp4")
         srv.close()
     except Exception as e:
